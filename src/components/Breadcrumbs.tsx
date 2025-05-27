@@ -6,9 +6,34 @@ import {Fragment} from 'react';
 import Link from 'next/link';
 import type {RouteItem} from 'components/Layout/getRouteMeta';
 
+// 16 basic colors
+const COLORS = [
+  '#FF0000', // Red
+  '#00FF00', // Lime
+  '#0000FF', // Blue
+  '#FFFF00', // Yellow
+  '#FFA500', // Orange
+  '#800080', // Purple
+  '#00FFFF', // Aqua
+  '#FFC0CB', // Pink
+  '#A52A2A', // Brown
+  '#808080', // Gray
+  '#008000', // Green
+  '#000080', // Navy
+  '#FFD700', // Gold
+  '#4B0082', // Indigo
+  '#F5DEB3', // Wheat
+  '#000000', // Black
+];
+
+// Returns a random color from COLORS
+function getRandomColor() {
+  return COLORS[Math.floor(Math.random() * COLORS.length)];
+}
+
 function Breadcrumbs({breadcrumbs}: {breadcrumbs: RouteItem[]}) {
   return (
-    <div className="flex flex-wrap">
+    <div style={{backgroundColor: getRandomColor()}} className="flex flex-wrap">
       {breadcrumbs.map(
         (crumb, i) =>
           crumb.path &&

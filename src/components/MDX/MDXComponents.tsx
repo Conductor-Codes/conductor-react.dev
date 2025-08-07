@@ -33,6 +33,7 @@ import type {Toc, TocItem} from './TocContext';
 import {TeamMember} from './TeamMember';
 import {LanguagesContext} from './LanguagesContext';
 import {finishedTranslations} from 'utils/finishedTranslations';
+import {ProductGrid} from '../ProductGrid';
 
 import ErrorDecoder from './ErrorDecoder';
 import {IconCanary} from '../Icon/IconCanary';
@@ -484,6 +485,7 @@ export const MDXComponents = {
   Canary,
   CanaryBadge,
   PackageImport,
+  ProductGrid,
   ReadBlogPost,
   Recap,
   Recipes,

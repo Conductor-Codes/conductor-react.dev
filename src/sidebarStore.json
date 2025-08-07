@@ -1,0 +1,21 @@
+{
+  "title": "Store",
+  "path": "/store",
+  "routes": [
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "REACT MERCHANDISE"
+    },
+    {
+      "title": "Store",
+      "path": "/store",
+      "skipBreadcrumb": true,
+      "routes": [
+        {
+          "title": "All Products",
+          "path": "/store"
+        }
+      ]
+    }
+  ]
+}

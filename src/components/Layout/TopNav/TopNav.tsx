@@ -156,7 +156,14 @@ export default function TopNav({
 }: {
   routeTree: RouteItem;
   breadcrumbs: RouteItem[];
-  section: 'learn' | 'reference' | 'community' | 'blog' | 'home' | 'unknown';
+  section:
+    | 'learn'
+    | 'reference'
+    | 'community'
+    | 'store'
+    | 'blog'
+    | 'home'
+    | 'unknown';
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -331,6 +338,9 @@ export default function TopNav({
                 <NavItem isActive={section === 'community'} url="/community">
                   Community
                 </NavItem>
+                <NavItem isActive={section === 'store'} url="/store">
+                  Store
+                </NavItem>
                 <NavItem isActive={section === 'blog'} url="/blog">
                   Blog
                 </NavItem>
@@ -419,6 +429,9 @@ export default function TopNav({
                       isActive={section === 'community'}
                       url="/community">
                       Community
+                    </NavItem>
+                    <NavItem isActive={section === 'store'} url="/store">
+                      Store
                     </NavItem>
                     <NavItem isActive={section === 'blog'} url="/blog">
                       Blog

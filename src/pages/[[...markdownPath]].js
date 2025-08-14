@@ -6,10 +6,12 @@ import {Fragment, useMemo} from 'react';
 import {useRouter} from 'next/router';
 import {Page} from 'components/Layout/Page';
 import sidebarHome from '../sidebarHome.json';
-import sidebarLearn from '../sidebarLearn.json';
-import sidebarReference from '../sidebarReference.json';
-import sidebarCommunity from '../sidebarCommunity.json';
-import sidebarBlog from '../sidebarBlog.json';
+import sidebarHome from '../sidebarHome.json';
+const sidebarLearn = () => import('../sidebarLearn.json').then(m => m.default);
+const sidebarReference = () => import('../sidebarReference.json').then(m => m.default);
+const sidebarCommunity = () => import('../sidebarCommunity.json').then(m => m.default);
+const sidebarStore = () => import('../sidebarStore.json').then(m => m.default);
+const sidebarBlog = () => import('../sidebarBlog.json').then(m => m.default);
 import {MDXComponents} from 'components/MDX/MDXComponents';
 import compileMDX from 'utils/compileMDX';
 import {generateRssFeed} from '../utils/rss';
@@ -35,6 +37,9 @@ export default function Layout({content, toc, meta, languages}) {
       break;
     case 'community':
       routeTree = sidebarCommunity;
+      break;
+    case 'store':
+      routeTree = sidebarStore;
       break;
     case 'blog':
       routeTree = sidebarBlog;
@@ -63,6 +68,8 @@ function useActiveSection() {
     return 'learn';
   } else if (asPath.startsWith('/community')) {
     return 'community';
+  } else if (asPath.startsWith('/store')) {
+    return 'store';
   } else if (asPath.startsWith('/blog')) {
     return 'blog';
   } else {
